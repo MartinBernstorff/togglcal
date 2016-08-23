@@ -1,4 +1,3 @@
-DIR=/home/martin/Work/Toggl
 OIFS=$IFS
 IFS=,    #notice: this is your field separator
 while read var1 var2 var3 var4
@@ -14,15 +13,15 @@ duration="${var3//\"}"
 project="${var4//\"}"
 denom=60
 
-if [ "$duration" -ge "0" ] 
+if [ "$duration" -ge "0" ]
 	then
-		echo -n $subject,>>$DIR/formatted.csv
-		date -d "$startorg" +"%d/%m/%y %H:%M:%S", | xargs echo -n>>$DIR/formatted.csv
-		echo -n $((duration/denom)),>>$DIR/formatted.csv
-		echo $project>>$DIR/formatted.csv
+		echo -n $subject,>>formatted.csv
+		date -d "$startorg" +"%d/%m/%y %H:%M:%S", | xargs echo -n>>formatted.csv
+		echo -n $((duration/denom)),>>formatted.csv
+		echo $project>>formatted.csv
 fi
 
-done <$DIR/new.csv
+done <new.csv
 IFS=$OIFS
 
 echo "---Data succesfully reformatted"

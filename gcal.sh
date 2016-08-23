@@ -1,5 +1,4 @@
 #!/bin/bash
-DIR=/home/martin/Work/Toggl
 echo "----------------------Creating calendar events"
 
 MetaImprovements="21254275"
@@ -51,8 +50,7 @@ do
 
 # note: the upper line is just an example to print out the fist, fourth and sixth field
 
-done <$DIR/formatted.csv
+done <formatted.csv
 IFS=$OIFS
 
-> $DIR/formatted.csv
-
+> formatted.csv
